@@ -1,7 +1,45 @@
-import React from "react";
+import { IconButton, InputBase, Paper } from "@mui/material";
+import React, { useState } from "react";
+import SearchIcon from "@mui/icons-material/Search";
 
 const AddMovie = () => {
-  return <div>AddMovie</div>;
+  const [query, setQuery] = useState("");
+
+  const handleSearch = (e) => {
+    setQuery(e.target.value);
+  };
+  return (
+    <div
+      style={{
+        margin: "auto",
+        padding: "15px",
+        maxWidth: "570px",
+        alignContent: "center",
+        marginTop: "50px",
+      }}
+    >
+      <Paper
+        component="form"
+        sx={{
+          p: "2px 4px",
+          display: "flex",
+          alignItems: "center",
+          width: "540",
+        }}
+      >
+        {" "}
+        <InputBase
+          sx={{ ml: 1, flex: 1 }}
+          placeholder="Busca tu pelìcula"
+          value={query}
+          onChange={handleSearch}
+        />
+        <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
+          <SearchIcon />
+        </IconButton>
+      </Paper>
+    </div>
+  );
 };
 
 export default AddMovie;
