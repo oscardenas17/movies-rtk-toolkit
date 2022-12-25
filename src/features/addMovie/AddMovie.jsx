@@ -1,6 +1,7 @@
 import { IconButton, InputBase, Paper } from "@mui/material";
 import React, { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
+import { useGetMoviesMutation } from "../../services/movieApi";
 
 const AddMovie = () => {
   const [query, setQuery] = useState("");
@@ -8,6 +9,8 @@ const AddMovie = () => {
   const handleSearch = (e) => {
     setQuery(e.target.value);
   };
+
+
   return (
     <div
       style={{
