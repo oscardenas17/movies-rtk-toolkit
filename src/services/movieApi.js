@@ -1,8 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+const baseURL = process.env.REACT_APP_API;
+
 export const movieApi = createApi({
   reducerPath: " movieApi",
-  baseQuery: fetchBaseQuery({ baseUrl: `${process.env.REACT_APP_API}` }),
+  baseQuery: fetchBaseQuery({ baseUrl: baseURL }),
   endpoints: (builder) => ({
     getMovies: builder.mutation({
       query: ({ query }) => {
