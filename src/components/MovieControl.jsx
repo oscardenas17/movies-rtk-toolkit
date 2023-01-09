@@ -14,7 +14,7 @@ const MovieControl = ({ type, movie, display }) => {
   }));
 
   return (
-    <div className="notdisplayed">
+    <div className={`notdisplayed ${display}`}>
       {type === "watchList" && (
         <Stack direction="row">
           <ControlButton>
