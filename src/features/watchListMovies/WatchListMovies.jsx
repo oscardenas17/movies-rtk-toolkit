@@ -13,7 +13,7 @@ const WatchListMovies = () => {
       <Typography variant="h4" style={{ fontWeight: "600" }} mt={4}>
         Mi lista para mirar
       </Typography>
-      {watchListMovies.length > 0 ?(<MovieGrid movies={watchListMovies}/> ):(<><h2>Añade tus peliculas a ver mas tarde</h2></>)}
+      {watchListMovies.length > 0 ?(<MovieGrid movies={watchListMovies} type="watchList" /> ):(<><h2>Añade tus peliculas a ver mas tarde</h2></>)}
     </Container>
   );
 };
