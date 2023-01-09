@@ -10,7 +10,7 @@ import {
 import Moment from "react-moment";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addMoviesToWatchList, selectAllWatchListMovies } from "../features/addMovie/moviesSlice";
+import { addMovieToWatched, addMoviesToWatchList, selectAllWatchListMovies } from "../features/addMovie/moviesSlice";
 
 const MovieSearchResult = ({ movie }) => {
 
@@ -37,9 +37,12 @@ const MovieSearchResult = ({ movie }) => {
           <Typography color="text.secondary" component="div">
             <Moment format="YYYY">{movie?.release_date}</Moment>
           </Typography>
-          <Stack spacing={2} direction="row" sx={{ mt: 6 }}>
+          <Stack spacing={2} direction="row" sx={{ mt:3}}>
             <Button variant="contained"
             disabled={watchListDisabled} onClick={( )=>dispatch(addMoviesToWatchList(movie)) }> Añadir a la lista para mirar</Button>
+              <Button variant="contained"
+            //disabled={watchListDisabled} 
+            onClick={( )=>dispatch(addMovieToWatched(movie)) }> Añadir a vistas</Button>
           </Stack>
         </CardContent>
       </Box>
