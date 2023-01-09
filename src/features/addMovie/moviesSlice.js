@@ -16,6 +16,11 @@ const moviesSlice = createSlice({
         );
      
         state.watchedMovies.push(action.payload)
+    },
+    removeMovieFromWatchList(state, action){
+      state.watchListMovies = state.watchListMovies.filter(
+        (movie) => movie.id !== action.payload
+        );
     }
 
   },
@@ -23,6 +28,6 @@ const moviesSlice = createSlice({
 
 export const selectAllWatchListMovies =(state) => state.movies.watchListMovies;
 
-export const {addMoviesToWatchList, addMovieToWatched} = moviesSlice.actions
+export const {addMoviesToWatchList, addMovieToWatched, removeMovieFromWatchList} = moviesSlice.actions
 
 export default  moviesSlice.reducer;
