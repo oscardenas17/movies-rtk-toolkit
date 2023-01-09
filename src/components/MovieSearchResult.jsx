@@ -9,12 +9,17 @@ import {
 } from "@mui/material";
 import Moment from "react-moment";
 import React from "react";
-import { useDispatch } from "react-redux";
-import { addMoviesToWatchList } from "../features/addMovie/moviesSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addMoviesToWatchList, selectAllWatchListMovies } from "../features/addMovie/moviesSlice";
 
 const MovieSearchResult = ({ movie }) => {
 
   const dispatch = useDispatch();
+  const watchListMovies = useSelector(selectAllWatchListMovies)
+
+  let storedMovies = watchListMovies.find((item)=> item.id ===movie.id)
+
+  const watchListDisabled = storedMovies ? true:  false
   return (
     <Card sx={{ display: "flex", height: 170, m: 1 }}>
       <CardMedia
@@ -33,7 +38,8 @@ const MovieSearchResult = ({ movie }) => {
             <Moment format="YYYY">{movie?.release_date}</Moment>
           </Typography>
           <Stack spacing={2} direction="row" sx={{ mt: 6 }}>
-            <Button variant="contained" onClick={( )=>dispatch(addMoviesToWatchList(movie)) }> Añadir a la lista para mirar</Button>
+            <Button variant="contained"
+            disabled={watchListDisabled} onClick={( )=>dispatch(addMoviesToWatchList(movie)) }> Añadir a la lista para mirar</Button>
           </Stack>
         </CardContent>
       </Box>
