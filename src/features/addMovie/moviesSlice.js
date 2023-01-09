@@ -13,6 +13,8 @@ const moviesSlice = createSlice({
   },
 });
 
+export const selectAllWatchListMovies =(state) => state.movies.watchListMovies;
+
 export const {addMoviesToWatchList} = moviesSlice.actions
 
 export default  moviesSlice.reducer;
